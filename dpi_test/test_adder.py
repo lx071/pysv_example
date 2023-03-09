@@ -35,4 +35,4 @@ def get_rand_array(len):
 # generate_sv_binding([RandArray], filename="hdl/rand_array.sv", pkg_name="rand_array")
 
 lib_path = compile_lib([get_rand_array], cwd='build')
-generate_sv_binding([get_rand_array], filename="hdl/rand_array.sv", pkg_name="rand_array")
+# generate_sv_binding([get_rand_array], filename="hdl/rand_array.sv", pkg_name="rand_array")
