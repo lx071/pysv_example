@@ -11,6 +11,9 @@ int main(int argc, char** argv)
     auto contextp {make_unique<VerilatedContext>()};
     contextp->commandArgs(argc, argv);
     auto top {make_unique<Vrand_array>(contextp.get())};
+    
+    Verilated::traceEverOn(true);
+    
     while(!contextp->gotFinish()){
         top->eval();
         contextp->timeInc(1000);
