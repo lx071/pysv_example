@@ -4,6 +4,7 @@
 from pysv import sv, compile_lib, generate_sv_binding, DataType, generate_cxx_binding
 import random
 import numpy as np
+from sim import compile
 
 class RandArray:
     @sv(len=DataType.UInt)
@@ -36,3 +37,14 @@ def get_rand_array(len):
 
 lib_path = compile_lib([get_rand_array], cwd='build')
 # generate_sv_binding([get_rand_array], filename="hdl/rand_array.sv", pkg_name="rand_array")
+
+dut_path = 'hdl/'
+top_file_name = 'our.sv'
+
+sv_li = ['rand_array.sv']       # 由各python函数生成得到的SV binding文件
+v_li = ['adder.v', 'our.sv']
+
+hfn = 'sim_main.cpp'
+
+compile(dut_path, top_file_name, sv_li, v_li, hfn)
+

@@ -1,4 +1,4 @@
-#include "Vrand_array.h"
+#include "Vour.h"
 #include "verilated.h"
 
 #include <memory>
@@ -10,7 +10,7 @@ int main(int argc, char** argv)
 {
     auto contextp {make_unique<VerilatedContext>()};
     contextp->commandArgs(argc, argv);
-    auto top {make_unique<Vrand_array>(contextp.get())};
+    auto top {make_unique<Vour>(contextp.get())};
     
     Verilated::traceEverOn(true);
     

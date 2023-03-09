@@ -17,7 +17,6 @@ end:
 
 compile:
 	python test_adder.py
-	python main.py
 
 # only make visual ( make .elf file to the .vcd file )
 
@@ -33,4 +32,4 @@ sim:
 # clear middle files
 
 clean:
-	rm -rf build obj_dir simulation
+	rm -rf build simulation __pycache__
