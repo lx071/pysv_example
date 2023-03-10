@@ -2,7 +2,6 @@
 # 编译生成链接库 在./build下
 
 from pysv import sv, compile_lib, generate_sv_binding, DataType, generate_cxx_binding
-import random
 import numpy as np
 from sim import compile
 
@@ -23,7 +22,10 @@ class RandArray:
 @sv(return_type=DataType.String, len=DataType.UInt)
 def get_rand_array(len):
     """传递一个随机数组"""
-    return np.random.randint(1, 127, len, dtype="byte").tobytes()
+    res = np.random.randint(1, 127, len+1, dtype='byte')
+    res[len] = 0;
+    return res.tobytes()
+
 
 # 编译代码，默认名字libpysv.so
 # lib_path = compile_lib([generate_num], cwd="build")
