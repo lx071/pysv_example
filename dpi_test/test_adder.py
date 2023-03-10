@@ -41,7 +41,7 @@ lib_path = compile_lib([get_rand_array], cwd='build')
 # generate_sv_binding([get_rand_array], filename="hdl/rand_array.sv", pkg_name="rand_array")
 
 dut_path = 'hdl/'
-top_file_name = 'our.sv'
+top_file_name = 'rand_array.sv'
 
 sv_li = ['rand_array.sv']       # 由各python函数生成得到的SV binding文件
 v_li = ['adder.v', 'our.sv']

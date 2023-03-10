@@ -59,8 +59,8 @@ def compile(dut_path, top_file_name, sv_li, v_li, hfn):
             .format(top=dut_name, vfn=v_name, hfn=hfn, lib=pysv_lib)
             )
     os.system(
-        "verilator --cc --trace --exe --build --sv --timing -top-module {top} {vfn} {hfn} ../{lib}" \
-            .format(top=dut_name, vfn=v_name, hfn=hfn, lib=pysv_lib))
+        "verilator --cc --trace --exe --build --sv --timing {vfn} {hfn} ../{lib}" \
+            .format(vfn=v_name, hfn=hfn, lib=pysv_lib))
             
     # # cp libpysv_Top.so ./obj_dir/
     os.system("cp {} ./obj_dir/".format(pysv_lib))
